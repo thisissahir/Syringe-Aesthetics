@@ -66,8 +66,8 @@ header{position:sticky;top:0;z-index:50;background:rgba(247,244,238,.94);backdro
 .hero-copy h1{margin:14px 0 18px}
 .hero-copy .proof{font-size:15.5px;color:var(--olive-deep);margin-bottom:30px;max-width:46ch}
 .hero-cta{display:flex;gap:14px;flex-wrap:wrap}
-.hero-media{background:linear-gradient(150deg,var(--mauve-soft) 0%,var(--olive) 78%);position:relative}
-.hero-media .badge{position:absolute;bottom:28px;left:28px;right:28px;background:rgba(255,255,255,.92);padding:16px 20px;border-radius:6px;font-size:13px;color:var(--olive-deep);letter-spacing:.02em}
+.hero-media{position:relative;background:var(--olive)}
+.hero-media img{width:100%;height:100%;object-fit:cover;display:block}
 @media(max-width:860px){.hero-grid{grid-template-columns:1fr}.hero-media{min-height:220px;order:-1}.hero-copy{padding:48px 24px}}
 
 .trust{background:var(--olive-deep);color:#fff;padding:28px 0}
@@ -78,8 +78,10 @@ header{position:sticky;top:0;z-index:50;background:rgba(247,244,238,.94);backdro
 .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:40px}
 @media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:520px){.grid{grid-template-columns:1fr}}
-.card{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:30px 24px;transition:transform .2s,box-shadow .2s;display:block}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:6px;overflow:hidden;transition:transform .2s,box-shadow .2s;display:block}
 .card:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(60,69,48,.10)}
+.card img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block}
+.card .card-body{padding:22px 24px 26px}
 .card h3{margin-bottom:8px}
 .card p{font-size:14px}
 .card .more{color:var(--accent);font-size:13px;font-weight:600;letter-spacing:.02em;margin-top:14px;display:inline-block}
@@ -87,8 +89,8 @@ header{position:sticky;top:0;z-index:50;background:rgba(247,244,238,.94);backdro
 .founder{background:var(--surface)}
 .founder-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:48px;align-items:center;margin-top:36px}
 @media(max-width:860px){.founder-grid{grid-template-columns:1fr}}
-.founder-photo{aspect-ratio:4/5;background:linear-gradient(160deg,var(--olive) 0%,var(--olive-deep) 100%);border-radius:8px;display:flex;align-items:end;padding:22px;position:relative}
-.founder-photo span{color:rgba(255,255,255,.85);font-size:12px;letter-spacing:.04em}
+.founder-photo{aspect-ratio:4/5;background:var(--olive);border-radius:8px;overflow:hidden;position:relative}
+.founder-photo img{width:100%;height:100%;object-fit:cover;display:block}
 .founder-cred{color:var(--olive);font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;margin-bottom:6px;display:block}
 
 .process{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:40px}
@@ -96,11 +98,12 @@ header{position:sticky;top:0;z-index:50;background:rgba(247,244,238,.94);backdro
 .process .step{border-top:2px solid var(--olive);padding-top:18px}
 .process .num{font-family:var(--serif);color:var(--mauve);font-size:15px;letter-spacing:.06em}
 
-.ba{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:36px}
+.ba{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:36px;align-items:start}
 @media(max-width:820px){.ba{grid-template-columns:1fr 1fr}}
-.ba .item{aspect-ratio:1/1;background:var(--mauve-soft);border-radius:6px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;text-align:center;padding:20px}
-.ba .item p{font-size:12.5px;color:var(--olive-deep);max-width:20ch}
-.ba .tag{position:absolute;left:10px;top:10px;background:rgba(60,69,48,.85);color:#fff;font-size:11px;padding:4px 9px;border-radius:2px;letter-spacing:.04em}
+@media(max-width:520px){.ba{grid-template-columns:1fr}}
+.ba .item{background:var(--mauve-soft);border-radius:6px;position:relative;overflow:hidden}
+.ba .item img{width:100%;height:auto;display:block}
+.ba .tag{position:absolute;left:10px;top:10px;background:rgba(60,69,48,.85);color:#fff;font-size:11px;padding:4px 9px;border-radius:2px;letter-spacing:.04em;z-index:2}
 
 .trustnote{background:var(--mauve-soft);border-radius:6px;padding:30px 32px;margin-top:20px}
 .trustnote p{color:var(--olive-deep);font-size:14.5px;max-width:none}
@@ -160,8 +163,8 @@ footer a{color:rgba(255,255,255,.8)}
         <a class="btn btn-ghost" href="/services.html">View treatments</a>
       </div>
     </div>
-    <div class="hero-media" role="img" aria-label="Syringe Aesthetics treatment room, Dallas, TX">
-      <div class="badge">Real patient &amp; provider photography to be added here — every image on this site will be Manuel's actual room and work, never stock.</div>
+    <div class="hero-media">
+      <img src="img/manuel-consultation-hero.jpg" alt="Manuel Guillen, FNP-C, examining a patient's forehead during a consultation at Syringe Aesthetics" width="1400" height="1050">
     </div>
   </div>
 </section>
@@ -179,18 +182,30 @@ footer a{color:rgba(255,255,255,.8)}
   <span class="eyebrow">What can we help with</span>
   <h2>Treatments, by what you want to change</h2>
   <div class="grid">
-    <a class="card" href="/services.html#botox"><h3>Smooth expression lines</h3><p>BOTOX&reg; Cosmetic for forehead lines, frown lines, and crow's feet.</p><span class="more">Botox &rarr;</span></a>
-    <a class="card" href="/services.html#filler"><h3>Restore lost volume</h3><p>JUV&Eacute;DERM&reg; filler for cheeks, chin, temples, and jawline.</p><span class="more">Dermal filler &rarr;</span></a>
-    <a class="card" href="/services.html#lips"><h3>Enhance your lips</h3><p>JUV&Eacute;DERM&reg; Ultra XC and Volbella for natural, balanced lips.</p><span class="more">Lip filler &rarr;</span></a>
-    <a class="card" href="/services.html#kybella"><h3>Refine your profile</h3><p>KYBELLA&reg; to treat fullness under the chin, no surgery.</p><span class="more">Kybella &rarr;</span></a>
+    <a class="card" href="/services.html#botox">
+      <img src="img/smooth-expression-lines.jpg" alt="Close-up of a smooth, relaxed forehead" loading="lazy" width="700" height="875">
+      <div class="card-body"><h3>Smooth expression lines</h3><p>BOTOX&reg; Cosmetic for forehead lines, frown lines, and crow's feet.</p><span class="more">Botox &rarr;</span></div>
+    </a>
+    <a class="card" href="/services.html#filler">
+      <img src="img/restore-lost-volume.jpg" alt="Profile portrait showing full, contoured cheeks" loading="lazy" width="700" height="875">
+      <div class="card-body"><h3>Restore lost volume</h3><p>JUV&Eacute;DERM&reg; filler for cheeks, chin, temples, and jawline.</p><span class="more">Dermal filler &rarr;</span></div>
+    </a>
+    <a class="card" href="/services.html#lips">
+      <img src="img/enhance-lips.jpg" alt="Close-up of natural, balanced lips" loading="lazy" width="700" height="875">
+      <div class="card-body"><h3>Enhance your lips</h3><p>JUV&Eacute;DERM&reg; Ultra XC and Volbella for natural, balanced lips.</p><span class="more">Lip filler &rarr;</span></div>
+    </a>
+    <a class="card" href="/services.html#kybella">
+      <img src="img/refine-profile.jpg" alt="Profile portrait showing a defined jawline and chin" loading="lazy" width="700" height="875">
+      <div class="card-body"><h3>Refine your profile</h3><p>KYBELLA&reg; to treat fullness under the chin, no surgery.</p><span class="more">Kybella &rarr;</span></div>
+    </a>
   </div>
 </section>
 
 <section id="about-preview" class="founder">
   <div class="wrap">
     <div class="founder-grid">
-      <div class="founder-photo" role="img" aria-label="Manuel Guillen, FNP-C, founder of Syringe Aesthetics">
-        <span>Founder photo to be added</span>
+      <div class="founder-photo">
+        <img src="img/manuel-consultation-portrait.jpg" alt="Manuel Guillen, FNP-C, founder of Syringe Aesthetics, with a patient during consultation" loading="lazy" width="900" height="1125">
       </div>
       <div>
         <span class="eyebrow">Who holds the needle</span>
@@ -216,11 +231,11 @@ footer a{color:rgba(255,255,255,.8)}
 <section id="results" class="wrap">
   <span class="eyebrow">Real patients, real results</span>
   <h2>Before &amp; after</h2>
-  <p>Consented before-and-after photos are added here as they're captured. Every image will be an actual Syringe Aesthetics patient — never stock or invented. Individual results vary.</p>
+  <p>Actual Syringe Aesthetics patients, treated by Manuel Guillen, FNP-C and shown with consent. Individual results vary.</p>
   <div class="ba">
-    <div class="item"><span class="tag">Botox</span><p>Added once consented patient photos are on file</p></div>
-    <div class="item"><span class="tag">Lip filler</span><p>Added once consented patient photos are on file</p></div>
-    <div class="item"><span class="tag">Cheek filler</span><p>Added once consented patient photos are on file</p></div>
+    <div class="item"><span class="tag">Lip filler</span><img src="img/ba-lip-filler.jpg" alt="Before and after lip filler at Syringe Aesthetics" loading="lazy" width="820" height="820"></div>
+    <div class="item"><span class="tag">Cheek filler</span><img src="img/ba-cheek-filler.jpg" alt="Before and after cheek filler at Syringe Aesthetics" loading="lazy" width="820" height="820"></div>
+    <div class="item"><span class="tag">Chin filler</span><img src="img/ba-chin-filler.jpg" alt="Before and after chin filler at Syringe Aesthetics" loading="lazy" width="656" height="820"></div>
   </div>
 </section>
 
