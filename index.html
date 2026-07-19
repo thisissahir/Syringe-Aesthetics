@@ -48,6 +48,9 @@ img{max-width:100%;display:block}
 .btn-light{background:#fff;color:var(--olive-deep)}
 section{padding:88px 0}
 @media(max-width:640px){section{padding:56px 0}}
+/* .wrap's padding:0 24px ties .wrap on specificity with section's padding:88px 0 (both 0,1,0) and wins by cascade order, silently zeroing vertical section padding wherever <section class="wrap"> is used directly. Restore it with a higher-specificity rule, excluding .pagehero which already sets its own vertical padding correctly. */
+section.wrap:not(.pagehero){padding-top:88px;padding-bottom:88px}
+@media(max-width:640px){section.wrap:not(.pagehero){padding-top:56px;padding-bottom:56px}}
 
 header{position:sticky;top:0;z-index:50;background:rgba(247,244,238,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
 .nav{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;max-width:var(--max);margin:0 auto}
